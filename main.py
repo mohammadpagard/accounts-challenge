@@ -58,8 +58,8 @@ class Account:
 
 
 a1 = Account(password="Kmp981234", user_id='mohammadID', phone='09138159980', email='mohammadpagard2003@gmail.com')
-a1.show_welcome()
 a1.verify_change_password()
+a1.show_welcome()
 
 
 class Site:
