@@ -2,15 +2,19 @@ import re
 
 
 class Account:
-    first_name = input("Enter you're first name please: ")
-    last_name = input("Enter you're last name please: ")
+    first_name = input("Enter you're first name: ")
+    last_name = input("Enter you're last name: ")
 
     def __init__(self, user_id, phone, email, username=None, password=None):
-        self.username = self.first_name + '_' + self.last_name
+        self.username = self.first_name + "_" + self.last_name
         self.password = password
         self.user_id = user_id
         self.phone = phone
         self.email = email
+
+    def show(self, username):
+        username = username.replace('_', ' ')
+        return f"{self.first_name} {self.last_name}"
 
     def show_welcome(self):
         # Password validations
@@ -39,9 +43,9 @@ class Account:
             email = self.email
             check(email)
         # Print welcome and username validation
-        upper_first_name = self.first_name[0].upper()
-        upper_last_name = self.last_name[0].upper()
-        print("\nWelcome to our site " + ''.join(upper_first_name + self.first_name[1:] + ' ' + upper_last_name + self.last_name[1:]))
+        print("Welcome to our site ", end="")
+        for user in self.username.split('_'):
+            print(''.join(user.capitalize()), end=' ')
 
     def verify_change_password(self, old_password=None):
         old_password = input("\n\nEnter you're old password: ")
@@ -58,7 +62,7 @@ class Account:
 
 
 a1 = Account(password="Kmp981234", user_id='mohammadID', phone='09138159980', email='mohammadpagard2003@gmail.com')
-a1.verify_change_password()
+# a1.verify_change_password()
 a1.show_welcome()
 
 
