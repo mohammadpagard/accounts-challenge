@@ -2,11 +2,11 @@ import re
 
 
 class Account:
+    first_name = input("Enter you're first name please: ")
+    last_name = input("Enter you're last name please: ")
     def __init__(self, user_id, phone, email, username=None, password=None):
-        first_name = input("Enter you're first name please: ")
-        last_name = input("Enter you're last name please: ")
 
-        self.username = first_name + '_' + last_name
+        self.username = self.first_name + '_' + self.last_name
         self.password = password
         self.user_id = user_id
         self.phone = phone
@@ -38,6 +38,10 @@ class Account:
         if __name__ == '__main__':
             email = self.email
             check(email)
+        # Print welcome and username validation
+        upper_first_name = self.first_name[0].upper()
+        upper_last_name = self.last_name[0].upper()
+        print("\nWelcome to our site " + ''.join(upper_first_name + self.first_name[1:] + ' ' + upper_last_name + self.last_name[1:]))
 
     def verify_change_password(self):
         pass
