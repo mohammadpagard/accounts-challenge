@@ -4,8 +4,8 @@ import re
 class Account:
     first_name = input("Enter you're first name please: ")
     last_name = input("Enter you're last name please: ")
-    def __init__(self, user_id, phone, email, username=None, password=None):
 
+    def __init__(self, user_id, phone, email, username=None, password=None):
         self.username = self.first_name + '_' + self.last_name
         self.password = password
         self.user_id = user_id
