@@ -43,12 +43,23 @@ class Account:
         upper_last_name = self.last_name[0].upper()
         print("\nWelcome to our site " + ''.join(upper_first_name + self.first_name[1:] + ' ' + upper_last_name + self.last_name[1:]))
 
-    def verify_change_password(self):
-        pass
+    def verify_change_password(self, old_password=None):
+        old_password = input("\n\nEnter you're old password: ")
+        if old_password == self.password:
+            new_password1 = input("Enter you're new password: ")
+            new_password2 = input("Enter again please: ")
+            # Passwords match validation
+            if new_password2 != new_password1:
+                print("Passwords is not match!")
+                new_password1 = input("Enter you're new password: ")
+                new_password2 = input("Enter again please: ")
+        else:
+            raise Exception("Invalid old password")
 
 
 a1 = Account(password="Kmp981234", user_id='mohammadID', phone='09138159980', email='mohammadpagard2003@gmail.com')
 a1.show_welcome()
+a1.verify_change_password()
 
 
 class Site:
