@@ -16,6 +16,14 @@ class Account:
         else:
             self.password = hash(self.password)
             print(f"Username: {self.username}\nPassword: {self.password}")
+        # Phone number validation
+        if len(self.phone) != 11:
+            raise Exception("Invalid phone number!")
+        elif '09' not in self.phone[:2]:
+            raise Exception("Invalid phone number!")
+        else:
+            print(f"Phone number: {self.phone}")
+        # Email validation
 
     def verify_change_password(self):
         pass
