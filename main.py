@@ -1,3 +1,6 @@
+import re
+
+
 class Account:
     def __init__(self, user_id, phone, email, username=None, password=None):
         first_name = input("Enter you're first name please: ")
@@ -24,6 +27,17 @@ class Account:
         else:
             print(f"Phone number: {self.phone}")
         # Email validation
+        regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+
+        def check(email_address):
+            if re.fullmatch(regex, email_address):
+                print(f"Email address: {self.email}")
+            else:
+                raise Exception("Invalid email address")
+
+        if __name__ == '__main__':
+            email = self.email
+            check(email)
 
     def verify_change_password(self):
         pass
