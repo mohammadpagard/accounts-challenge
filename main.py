@@ -45,7 +45,6 @@ class Account:
 
     # Decorators
     def show_welcome(self):
-        # Print welcome and username validation
         print("Welcome to our site ", end="")
         for user in self.username.split('_'):
             print(''.join(user.capitalize()), end=' ')
